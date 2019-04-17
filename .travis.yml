@@ -1,0 +1,32 @@
+#
+# IMPORTANT NOTE: This .travis.yml file is intended for
+# testing the project template itself. If you want to
+# test a project created from the project template,
+# please rename "project.travis.yml" to ".travis.yml",
+# overwriting this file.  "make setup" will do this
+# for you.
+
+language: python
+
+sudo: false
+
+python:
+  - "3.6"
+
+# Match postgresql version to that in conf/pillar/project.sls
+addons:
+  postgresql: "9.6"
+
+
+install:
+  - pip install Django
+  - pip install psycopg2
+
+before_script:
+  - psql -c "CREATE DATABASE travisdb;" -U postgres
+
+script:
+  - cd /home/travis/build/paravindranath/Django_Tutorial/mysite
+  - python manage.py migrate --noinput
+  - python manage.py test polls
+
