@@ -32,7 +32,7 @@ before_script:
 script:
   - cd /home/travis/build/paravindranath/Django_Tutorial/mysite
   - python manage.py migrate --noinput
-  - coverage run --source polls
+  - coverage run manage.py test
 
 after_success:
   - coveralls
