@@ -17,4 +17,4 @@ omit =
     datadic/serializers.py
     core/views.py
     */migrations/*
-    */admin.py  
+    */admin.py

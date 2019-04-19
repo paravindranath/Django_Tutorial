@@ -19,9 +19,7 @@ addons:
 
 
 install:
-  - pip install Django
-  - pip install psycopg2
-  - pip install python-coveralls
+  - pip install -r requirements.txt
 
 before_script:
   - psql -c "CREATE DATABASE test_djangotut;" -U postgres
